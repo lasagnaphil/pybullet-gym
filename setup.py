@@ -1,12 +1,6 @@
 from setuptools import setup, find_packages
-import sys, os.path
-
-# Don't import gym module here, since deps may not be installed
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'pybulletgym'))
 
 VERSION = 0.1
-
-setup_py_dir = os.path.dirname(os.path.realpath(__file__))
 
 setup(name='pybulletgym',
       version=VERSION,

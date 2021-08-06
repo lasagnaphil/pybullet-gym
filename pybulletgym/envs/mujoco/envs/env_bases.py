@@ -5,6 +5,7 @@ from pybullet_utils import bullet_client
 
 from pkg_resources import parse_version
 
+import matplotlib.pyplot as plt
 
 class BaseBulletEnv(gym.Env):
 	"""
@@ -50,7 +51,9 @@ class BaseBulletEnv(gym.Env):
 			if self.isRender:
 				self._p = bullet_client.BulletClient(connection_mode=pybullet.GUI)
 			else:
-				self._p = bullet_client.BulletClient()
+				# self._p = bullet_client.BulletClient()
+				# TODO: rendered image seems to be grayscale if GUI is not opened. Weird...
+				self._p = bullet_client.BulletClient(connection_mode=pybullet.GUI)
 
 			self.physicsClientId = self._p._client
 			self._p.configureDebugVisualizer(pybullet.COV_ENABLE_GUI,0)
@@ -96,7 +99,7 @@ class BaseBulletEnv(gym.Env):
 			projectionMatrix=proj_matrix,
 			renderer=pybullet.ER_BULLET_HARDWARE_OPENGL
 			)
-		rgb_array = np.array(px).reshape(self._render_width, self._render_height, 4)
+		rgb_array = np.asarray(px, dtype=np.uint8).reshape(self._render_height, self._render_width, 4)
 		rgb_array = rgb_array[:, :, :3]
 		return rgb_array
 

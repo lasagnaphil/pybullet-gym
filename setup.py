@@ -21,5 +21,5 @@ setup(name='pybulletgym',
       install_requires=[
           'pybullet>=1.7.8',
       ],
-      package_data={'pybulletgym': ["*.png", "*.gif", "*.jpg", "*.urdf", "*.sdf", "*.obj", "*.mtl", "*.dae", "*.off", "*.stl", "*.STL", "*.xml"]},
+      include_package_data=True
 )

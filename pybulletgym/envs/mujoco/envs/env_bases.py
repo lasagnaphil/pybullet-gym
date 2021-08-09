@@ -51,9 +51,7 @@ class BaseBulletEnv(gym.Env):
 			if self.isRender:
 				self._p = bullet_client.BulletClient(connection_mode=pybullet.GUI)
 			else:
-				# self._p = bullet_client.BulletClient()
-				# TODO: rendered image seems to be grayscale if GUI is not opened. Weird...
-				self._p = bullet_client.BulletClient(connection_mode=pybullet.GUI)
+				self._p = bullet_client.BulletClient()
 
 			self.physicsClientId = self._p._client
 			self._p.configureDebugVisualizer(pybullet.COV_ENABLE_GUI,0)

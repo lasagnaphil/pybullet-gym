@@ -4,9 +4,9 @@ from pybulletgym.envs.mujoco.scenes.scene_bases import SingleRobotEmptyScene
 
 
 class PusherBulletEnv(BaseBulletEnv):
-    def __init__(self):
+    def __init__(self, render=False):
         self.robot = Pusher()
-        BaseBulletEnv.__init__(self, self.robot)
+        BaseBulletEnv.__init__(self, self.robot, render=render)
 
     def create_single_player_scene(self, bullet_client):
         return SingleRobotEmptyScene(bullet_client, gravity=9.81, timestep=0.0020, frame_skip=5)

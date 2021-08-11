@@ -51,7 +51,7 @@ class BaseBulletEnv(gym.Env):
 			if self.isRender:
 				self._p = bullet_client.BulletClient(connection_mode=pybullet.GUI)
 			else:
-				self._p = bullet_client.BulletClient()
+				self._p = bullet_client.BulletClient(connection_mode=pybullet.DIRECT)
 
 			self.physicsClientId = self._p._client
 			self._p.configureDebugVisualizer(pybullet.COV_ENABLE_GUI,0)

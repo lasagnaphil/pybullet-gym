@@ -3,8 +3,8 @@ from pybulletgym.envs.mujoco.robots.locomotors.humanoid import Humanoid
 
 
 class HumanoidMuJoCoEnv(WalkerBaseMuJoCoEnv):
-    def __init__(self, robot=None):
+    def __init__(self, robot=None, render=False):
         self.robot = robot if robot is not None else Humanoid()
-        WalkerBaseMuJoCoEnv.__init__(self, self.robot)
+        WalkerBaseMuJoCoEnv.__init__(self, self.robot, render=render)
         self.electricity_cost  = 4.25 * WalkerBaseMuJoCoEnv.electricity_cost
         self.stall_torque_cost = 4.25 * WalkerBaseMuJoCoEnv.stall_torque_cost

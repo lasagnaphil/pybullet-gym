@@ -3,6 +3,6 @@ from pybulletgym.envs.mujoco.robots.locomotors.ant import Ant
 
 
 class AntMuJoCoEnv(WalkerBaseMuJoCoEnv):
-    def __init__(self):
+    def __init__(self, render=False):
         self.robot = Ant()
-        WalkerBaseMuJoCoEnv.__init__(self, self.robot)
+        WalkerBaseMuJoCoEnv.__init__(self, self.robot, render=render)

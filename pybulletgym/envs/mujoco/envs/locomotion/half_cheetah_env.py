@@ -4,9 +4,9 @@ import numpy as np
 
 
 class HalfCheetahMuJoCoEnv(WalkerBaseMuJoCoEnv):
-    def __init__(self):
+    def __init__(self, render=False):
         self.robot = HalfCheetah()
-        WalkerBaseMuJoCoEnv.__init__(self, self.robot)
+        WalkerBaseMuJoCoEnv.__init__(self, self.robot, render=render)
 
     def step(self, a):
         if not self.scene.multiplayer:  # if multiplayer, action first applied to all robots, then global step() called, then _step() for all robots with the same actions

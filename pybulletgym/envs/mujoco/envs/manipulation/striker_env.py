@@ -5,9 +5,9 @@ import numpy as np
 
 
 class StrikerBulletEnv(BaseBulletEnv):
-    def __init__(self):
+    def __init__(self, render=False):
         self.robot = Striker()
-        BaseBulletEnv.__init__(self, self.robot)
+        BaseBulletEnv.__init__(self, self.robot, render=render)
         self._striked = False
         self._min_strike_dist = np.inf
         self.strike_threshold = 0.1

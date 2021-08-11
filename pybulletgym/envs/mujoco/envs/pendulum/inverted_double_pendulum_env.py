@@ -4,9 +4,9 @@ from pybulletgym.envs.mujoco.scenes.scene_bases import SingleRobotEmptyScene
 
 
 class InvertedDoublePendulumMuJoCoEnv(BaseBulletEnv):
-    def __init__(self):
+    def __init__(self, render=False):
         self.robot = InvertedDoublePendulum()
-        BaseBulletEnv.__init__(self, self.robot)
+        BaseBulletEnv.__init__(self, self.robot, render=render)
         self.stateId = -1
 
     def create_single_player_scene(self, bullet_client):
